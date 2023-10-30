@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace TargetPracticeAndMasterHunter
 {
-    internal class ArcheryTargetPraticeSettings : JsonModSettings
+    internal class TargetPracticeAndMasterHunterSettings : JsonModSettings
     {
         //public enum Choice {Default, Realistic, Custom}
         //public enum ChoiceYN {Default, Custom}
@@ -576,11 +576,11 @@ namespace TargetPracticeAndMasterHunter
 
     internal static class Settings
     {
-        public static ArcheryTargetPraticeSettings settings = new();
+        public static TargetPracticeAndMasterHunterSettings settings = new();
 
         public static void OnLoad()
         {
-            settings.AddToModSettings("Archery Target Practice Settings");
+            settings.AddToModSettings("Target Practice & Master Hunter Settings");
             //settings.RefreshFields();
         }
     }

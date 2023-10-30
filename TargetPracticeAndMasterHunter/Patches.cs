@@ -78,8 +78,6 @@ namespace TargetPracticeAndMasterHunter
             // UNTOUCHED : Points earned through knowledge books won't be skipped by this prefix (Meaning books have to provide at least 2 points...)
             // BLOCKED : Points earn when hitting an animal no matter the distance will be skipped by this prefix
             // BLOCKED : Points from crafting arrows will be skipped by this prefix (even if not disabled in mod settings)
-
-            // --------------  TO DO : Add a condition with a settings for master hunter option
             if (numPoints == 1 && (skillType == SkillType.Rifle || skillType == SkillType.Revolver || skillType == SkillType.Archery)) return false;
 
             return true;
