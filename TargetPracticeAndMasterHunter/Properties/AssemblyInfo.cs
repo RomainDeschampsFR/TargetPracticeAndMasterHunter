@@ -16,5 +16,5 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyVersion("2.0.3")]
 [assembly: AssemblyFileVersion("2.0.3")]
-[assembly: MelonInfo(typeof(TargetPracticeAndMasterHunter.TargetPracticeAndMasterHunter), "TargetPracticeAndMasterHunter", "2.0.3", "Thekillergreece, Romain")]
+[assembly: MelonInfo(typeof(TargetPracticeAndMasterHunter.TargetPracticeAndMasterHunter), "TargetPracticeAndMasterHunter", "2.0.3", "Romain")]
 [assembly: MelonGame("Hinterland", "TheLongDark")]

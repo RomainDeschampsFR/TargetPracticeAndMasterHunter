@@ -33,13 +33,20 @@ namespace TargetPracticeAndMasterHunter
             }
 
             int nbPoints = 0;
-            var references = (skillType == SkillType.Archery) ? TargetPracticeAndMasterHunter.referencesBow : TargetPracticeAndMasterHunter.referencesFirearms;
+            string[,]? references = skillType switch
+            {
+                SkillType.Archery => TargetPracticeAndMasterHunter.referencesBow,
+                SkillType.Rifle => TargetPracticeAndMasterHunter.referencesRifle,
+                SkillType.Revolver => TargetPracticeAndMasterHunter.referencesRevolver,
+                _ => null
+            };
+            if (references == null) return nbPoints;
 
-            for (int i = 0; i < references.GetLength(0); i++)
+                for (int i = 0; i < references.GetLength(0); i++)
             {
                 if (targetName.Contains(references[i, 0]) && (references[i, 1] == (currentLevel + 1).ToString() || currentLevel == 4))
                 {
-
+                    //MelonLogger.Msg("targetNameInLoop");
                     if (targetName == "OBJ_BullseyeTarget_Prefab")
                     {
                         // Must hit the paper bullseye (not the outer rim)
@@ -65,6 +72,7 @@ namespace TargetPracticeAndMasterHunter
                         nbPoints = 1;
                         if (Settings.settings.updateIncrementalBonus)
                         {
+                            nbPoints = 0;
                             for (int j = i; j < (i + (4 - currentLevel)); j++)
                             {
                                 if (distance >= int.Parse(references[j, 2]))
@@ -77,6 +85,7 @@ namespace TargetPracticeAndMasterHunter
                                 }
                             }
                         }
+                        //MelonLogger.Msg("points : " + nbPoints);
                         if (Settings.settings.updateSideStep && !targetName.Contains("WILDLIFE"))
                         {
                             MakePerpendicularSideStep(collisionPoint, playerPosition);
@@ -87,7 +96,7 @@ namespace TargetPracticeAndMasterHunter
             }
             // By Disabling Master Hunter you enabled vanilla point from hitting animals and you earn therefore 1 more point, this solve the issue.
             if (targetName.Contains("WILDLIFE") && !Settings.settings.updateMasterHunter) nbPoints -= 1;
-
+            //MelonLogger.Msg("points : " + nbPoints);
             GlobalVariable.nbPoints = nbPoints;
             return nbPoints;
         }

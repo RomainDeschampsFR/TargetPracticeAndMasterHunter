@@ -1,4 +1,5 @@
 ﻿using ModSettings;
+using MelonLoader;
 using System.Reflection;
 
 namespace TargetPracticeAndMasterHunter
@@ -12,7 +13,7 @@ namespace TargetPracticeAndMasterHunter
 
         [Section("GLOBAL SETTINGS")]
         [Name("Disable arrow crafting points")]
-        [Description("NO: Default \nYES: Arrow crafting no longer provides skill points")]
+        [Description("NO: Default \nYES: Arrow crafting no longer provides skill points\n Need to change scene for the change to be applied")]
         public bool updateCraftingSkillPoints = true;
 
         // ENABLE INCRELENTAL BONUS
@@ -22,7 +23,7 @@ namespace TargetPracticeAndMasterHunter
         public bool updateIncrementalBonus = false;
 
         // ENABLE SIDE-STEP
-
+        
         [Name("Enable side-step while training")]
         [Description("NO: Disabled \nYES: Auto side-step when successfully hiting a training target")]
         public bool updateSideStep = true;
@@ -52,130 +53,235 @@ namespace TargetPracticeAndMasterHunter
         [Description("NO: Target Pratice only \nYES: Target Pratice & Master Hunter")]
         public bool updateMasterHunter = true;
 
-        // SECTION FIREARM
+        // SECTION RIFLE
 
-        [Section("Rifle & Revolver : Target Practice")]
+        [Section("Rifle : Target Practice")]
         [Name("Recycled Cans & Spray Paint Cans : Level 1")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceCanFirearms1 = 45;
+        public int distanceCanRifle1 = 45;
 
         [Name("Recycled Cans & Spray Paint Cans : Level 2")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceCanFirearms2 = 50;
+        public int distanceCanRifle2 = 50;
 
         [Name("Recycled Cans & Spray Paint Cans : Level 3")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceCanFirearms3 = 55;
+        public int distanceCanRifle3 = 55;
 
         [Name("Recycled Cans & Spray Paint Cans : Level 4")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceCanFirearms4 = 60;
+        public int distanceCanRifle4 = 60;
 
         [Name("Bullseye : Level 1")]
-        [Description("Min distance required to earn a skill point with firearms. FOV max 130 . Do not really fit with firearm training")]
+        [Description("Min distance required to earn a skill point with rifle. FOV max 130 . Do not really fit with rifle training\nMust hit the paper bullseye(not the outer rim)")]
         [Slider(0, 300)]
-        public int distanceBullseyeFirearms1 = 115;
+        public int distanceBullseyeRifle1 = 115;
 
         [Name("Bullseye : Level 2")]
-        [Description("Min distance required to earn a skill point with firearms. FOV max 130 . Do not really fit with firearm training")]
+        [Description("Min distance required to earn a skill point with rifle. FOV max 130 . Do not really fit with rifle training\nMust hit the paper bullseye(not the outer rim)")]
         [Slider(0, 300)]
-        public int distanceBullseyeFirearms2 = 130;
+        public int distanceBullseyeRifle2 = 130;
 
         [Name("Bullseye : Level 3")]
-        [Description("Min distance required to earn a skill point with firearms. FOV max 130 . Do not really fit with firearm training")]
+        [Description("Min distance required to earn a skill point with rifle. FOV max 130 . Do not really fit with rifle training\nMust hit the paper bullseye(not the outer rim)")]
         [Slider(0, 300)]
-        public int distanceBullseyeFirearms3 = 300;
+        public int distanceBullseyeRifle3 = 300;
 
         [Name("Bullseye : Level 4")]
-        [Description("Min distance required to earn a skill point with firearms. FOV max 130 . Do not really fit with firearm training")]
+        [Description("Min distance required to earn a skill point with rifle. FOV max 130 . Do not really fit with rifle training\nMust hit the paper bullseye(not the outer rim)")]
         [Slider(0, 300)]
-        public int distanceBullseyeFirearms4 = 300;
+        public int distanceBullseyeRifle4 = 300;
 
-        [Section("Rifle & Revolver : Master Hunter")]
+        [Section("Rifle : Master Hunter")]
         [Name("Rabbit & Ptarmigan : Level 1")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceSmallPreyFirearms1 = 50;
+        public int distanceSmallPreyRifle1 = 50;
 
         [Name("Rabbit & Ptarmigan : Level 2")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceSmallPreyFirearms2 = 60;
+        public int distanceSmallPreyRifle2 = 60;
 
         [Name("Rabbit & Ptarmigan : Level 3")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceSmallPreyFirearms3 = 70;
+        public int distanceSmallPreyRifle3 = 70;
 
         [Name("Rabbit & Ptarmigan : Level 4")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceSmallPreyFirearms4 = 80;
+        public int distanceSmallPreyRifle4 = 80;
 
         [Name("Stag, Doe, Wolf & Cougar : Level 1")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceMediumPreyFirearms1 = 155;
+        public int distanceMediumPreyRifle1 = 155;
 
         [Name("Stag, Doe, Wolf & Cougar : Level 2")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceMediumPreyFirearms2 = 170;
+        public int distanceMediumPreyRifle2 = 170;
 
         [Name("Stag, Doe, Wolf & Cougar : Level 3")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceMediumPreyFirearms3 = 185;
+        public int distanceMediumPreyRifle3 = 185;
 
         [Name("Stag, Doe, Wolf & Cougar : Level 4")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceMediumPreyFirearms4 = 200;
+        public int distanceMediumPreyRifle4 = 200;
 
         [Name("Moose & Bear : Level 1")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceBigPreyFirearms1 = 185;
+        public int distanceBigPreyRifle1 = 185;
 
         [Name("Moose & Bear : Level 2")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceBigPreyFirearms2 = 200;
+        public int distanceBigPreyRifle2 = 200;
 
         [Name("Moose & Bear : Level 3")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceBigPreyFirearms3 = 215;
+        public int distanceBigPreyRifle3 = 215;
 
         [Name("Moose & Bear : Level 4")]
-        [Description("Min distance required to earn a skill point with firearms")]
+        [Description("Min distance required to earn a skill point with rifle")]
         [Slider(0, 300)]
-        public int distanceBigPreyFirearms4 = 230;
+        public int distanceBigPreyRifle4 = 230;
+
+        // SECTION REVOLVER
+
+        [Section("Revolver : Target Practice")]
+        [Name("Recycled Cans & Spray Paint Cans : Level 1")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceCanRevolver1 = 36;
+
+        [Name("Recycled Cans & Spray Paint Cans : Level 2")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceCanRevolver2 = 40;
+
+        [Name("Recycled Cans & Spray Paint Cans : Level 3")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceCanRevolver3 = 44;
+
+        [Name("Recycled Cans & Spray Paint Cans : Level 4")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceCanRevolver4 = 48;
+
+        [Name("Bullseye : Level 1")]
+        [Description("Min distance required to earn a skill point with revolver. FOV max 130 . Do not really fit with revolver training\nMust hit the paper bullseye(not the outer rim)")]
+        [Slider(0, 300)]
+        public int distanceBullseyeRevolver1 = 92;
+
+        [Name("Bullseye : Level 2")]
+        [Description("Min distance required to earn a skill point with revolver. FOV max 130 . Do not really fit with revolver training\nMust hit the paper bullseye(not the outer rim)")]
+        [Slider(0, 300)]
+        public int distanceBullseyeRevolver2 = 104;
+
+        [Name("Bullseye : Level 3")]
+        [Description("Min distance required to earn a skill point with revolver. FOV max 130 . Do not really fit with revolver training\nMust hit the paper bullseye(not the outer rim)")]
+        [Slider(0, 300)]
+        public int distanceBullseyeRevolver3 = 120;
+
+        [Name("Bullseye : Level 4")]
+        [Description("Min distance required to earn a skill point with revolver. FOV max 130 . Do not really fit with revolver training\nMust hit the paper bullseye(not the outer rim)")]
+        [Slider(0, 300)]
+        public int distanceBullseyeRevolver4 = 300;
+
+        [Section("Revolver : Master Hunter")]
+        [Name("Rabbit & Ptarmigan : Level 1")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceSmallPreyRevolver1 = 40;
+
+        [Name("Rabbit & Ptarmigan : Level 2")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceSmallPreyRevolver2 = 48;
+
+        [Name("Rabbit & Ptarmigan : Level 3")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceSmallPreyRevolver3 = 56;
+
+        [Name("Rabbit & Ptarmigan : Level 4")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceSmallPreyRevolver4 = 64;
+
+        [Name("Stag, Doe, Wolf & Cougar : Level 1")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceMediumPreyRevolver1 = 124;
+
+        [Name("Stag, Doe, Wolf & Cougar : Level 2")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceMediumPreyRevolver2 = 136;
+
+        [Name("Stag, Doe, Wolf & Cougar : Level 3")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceMediumPreyRevolver3 = 148;
+
+        [Name("Stag, Doe, Wolf & Cougar : Level 4")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceMediumPreyRevolver4 = 160;
+
+        [Name("Moose & Bear : Level 1")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceBigPreyRevolver1 = 148;
+
+        [Name("Moose & Bear : Level 2")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceBigPreyRevolver2 = 160;
+
+        [Name("Moose & Bear : Level 3")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceBigPreyRevolver3 = 172;
+
+        [Name("Moose & Bear : Level 4")]
+        [Description("Min distance required to earn a skill point with revolver")]
+        [Slider(0, 300)]
+        public int distanceBigPreyRevolver4 = 184;
+
 
         // SECTION BOW
 
         [Section("Bow : Target Practice")]
         [Name("Bullseye : Level 1")]
-        [Description("Min distance required to earn a skill point with Bow")]
+        [Description("Min distance required to earn a skill point with Bow.\nMust hit the paper bullseye(not the outer rim)")]
         [Slider(0, 300)]
         public int distanceBullseyeBow1 = 80;
 
         [Name("Bullseye : Level 2")]
-        [Description("Min distance required to earn a skill point with Bow")]
+        [Description("Min distance required to earn a skill point with Bow.\nMust hit the paper bullseye(not the outer rim)")]
         [Slider(0, 300)]
         public int distanceBullseyeBow2 = 100;
 
         [Name("Bullseye : Level 3")]
-        [Description("Min distance required to earn a skill point with Bow")]
+        [Description("Min distance required to earn a skill point with Bow.\nMust hit the paper bullseye(not the outer rim)")]
         [Slider(0, 300)]
         public int distanceBullseyeBow3 = 115;
 
         [Name("Bullseye : Level 4")]
-        [Description("Min distance required to earn a skill point with Bow")]
+        [Description("Min distance required to earn a skill point with Bow.\nMust hit the paper bullseye(not the outer rim)")]
         [Slider(0, 300)]
         public int distanceBullseyeBow4 = 130;
 
@@ -244,7 +350,7 @@ namespace TargetPracticeAndMasterHunter
 
         [Section("Research Books")]
         [Name("Enable books customization")]
-        [Description("NO: Vanilla values \nYES: Custom values (see descriptions for more details)")]
+        [Description("NO: Vanilla values \nYES: Custom values (see descriptions for more details)\n Need to change scene for the change to be applied")]
         public bool updateResearchBooks = true;
 
         // MASTER HUNTER BOOKS
@@ -376,38 +482,60 @@ namespace TargetPracticeAndMasterHunter
             {
                 case 0:
                     // Apply Beginner distances
-                    distanceCanFirearms1 = 25;
-                    distanceCanFirearms2 = 30;
-                    distanceCanFirearms3 = 35;
-                    distanceCanFirearms4 = 40;
-                    distanceBullseyeFirearms1 = 65;
-                    distanceBullseyeFirearms2 = 80;
-                    distanceBullseyeFirearms3 = 95;
-                    distanceBullseyeFirearms4 = 110;
+                    distanceCanRifle1 = 25;
+                    distanceCanRifle2 = 30;
+                    distanceCanRifle3 = 35;
+                    distanceCanRifle4 = 40;
+                    distanceBullseyeRifle1 = 65;
+                    distanceBullseyeRifle2 = 80;
+                    distanceBullseyeRifle3 = 95;
+                    distanceBullseyeRifle4 = 110;
+                    distanceSmallPreyRifle1 = 20;
+                    distanceSmallPreyRifle2 = 30;
+                    distanceSmallPreyRifle3 = 40;
+                    distanceSmallPreyRifle4 = 50;
+                    distanceMediumPreyRifle1 = 95;
+                    distanceMediumPreyRifle2 = 110;
+                    distanceMediumPreyRifle3 = 125;
+                    distanceMediumPreyRifle4 = 140;
+                    distanceBigPreyRifle1 = 125;
+                    distanceBigPreyRifle2 = 140;
+                    distanceBigPreyRifle3 = 155;
+                    distanceBigPreyRifle4 = 170;
+
+                    distanceCanRevolver1 = 20;
+                    distanceCanRevolver2 = 24;
+                    distanceCanRevolver3 = 28;
+                    distanceCanRevolver4 = 32;
+                    distanceBullseyeRevolver1 = 52;
+                    distanceBullseyeRevolver2 = 64;
+                    distanceBullseyeRevolver3 = 76;
+                    distanceBullseyeRevolver4 = 88;
+                    distanceSmallPreyRevolver1 = 16;
+                    distanceSmallPreyRevolver2 = 24;
+                    distanceSmallPreyRevolver3 = 32;
+                    distanceSmallPreyRevolver4 = 40;
+                    distanceMediumPreyRevolver1 = 76;
+                    distanceMediumPreyRevolver2 = 88;
+                    distanceMediumPreyRevolver3 = 100;
+                    distanceMediumPreyRevolver4 = 112;
+                    distanceBigPreyRevolver1 = 100;
+                    distanceBigPreyRevolver2 = 112;
+                    distanceBigPreyRevolver3 = 124;
+                    distanceBigPreyRevolver4 = 136;
+
                     distanceBullseyeBow1 = 35;
                     distanceBullseyeBow2 = 50;
                     distanceBullseyeBow3 = 65;
                     distanceBullseyeBow4 = 80;
-                    distanceSmallPreyFirearms1 = 20;
-                    distanceSmallPreyFirearms2 = 30;
-                    distanceSmallPreyFirearms3 = 40;
-                    distanceSmallPreyFirearms4 = 50;
                     distanceSmallPreyBow1 = 15;
                     distanceSmallPreyBow2 = 25;
                     distanceSmallPreyBow3 = 35;
                     distanceSmallPreyBow4 = 45;
-                    distanceMediumPreyFirearms1 = 95;
-                    distanceMediumPreyFirearms2 = 110;
-                    distanceMediumPreyFirearms3 = 125;
-                    distanceMediumPreyFirearms4 = 140;
                     distanceMediumPreyBow1 = 15;
                     distanceMediumPreyBow2 = 30;
                     distanceMediumPreyBow3 = 45;
                     distanceMediumPreyBow4 = 60;
-                    distanceBigPreyFirearms1 = 125;
-                    distanceBigPreyFirearms2 = 140;
-                    distanceBigPreyFirearms3 = 155;
-                    distanceBigPreyFirearms4 = 170;
                     distanceBigPreyBow1 = 35;
                     distanceBigPreyBow2 = 50;
                     distanceBigPreyBow3 = 65;
@@ -416,38 +544,60 @@ namespace TargetPracticeAndMasterHunter
 
                 case 1:
                     // Apply Intermediate distances
-                    distanceCanFirearms1 = 35;
-                    distanceCanFirearms2 = 40;
-                    distanceCanFirearms3 = 45;
-                    distanceCanFirearms4 = 50;
-                    distanceBullseyeFirearms1 = 95;
-                    distanceBullseyeFirearms2 = 110;
-                    distanceBullseyeFirearms3 = 125;
-                    distanceBullseyeFirearms4 = 300;
+                    distanceCanRifle1 = 35;
+                    distanceCanRifle2 = 40;
+                    distanceCanRifle3 = 45;
+                    distanceCanRifle4 = 50;
+                    distanceBullseyeRifle1 = 95;
+                    distanceBullseyeRifle2 = 110;
+                    distanceBullseyeRifle3 = 125;
+                    distanceBullseyeRifle4 = 300;
+                    distanceSmallPreyRifle1 = 35;
+                    distanceSmallPreyRifle2 = 45;
+                    distanceSmallPreyRifle3 = 55;
+                    distanceSmallPreyRifle4 = 65;
+                    distanceMediumPreyRifle1 = 125;
+                    distanceMediumPreyRifle2 = 140;
+                    distanceMediumPreyRifle3 = 155;
+                    distanceMediumPreyRifle4 = 170;
+                    distanceBigPreyRifle1 = 155;
+                    distanceBigPreyRifle2 = 170;
+                    distanceBigPreyRifle3 = 185;
+                    distanceBigPreyRifle4 = 200;
+
+                    distanceCanRevolver1 = 28;
+                    distanceCanRevolver2 = 32;
+                    distanceCanRevolver3 = 36;
+                    distanceCanRevolver4 = 40;
+                    distanceBullseyeRevolver1 = 76;
+                    distanceBullseyeRevolver2 = 88;
+                    distanceBullseyeRevolver3 = 100;
+                    distanceBullseyeRevolver4 = 240;
+                    distanceSmallPreyRevolver1 = 28;
+                    distanceSmallPreyRevolver2 = 36;
+                    distanceSmallPreyRevolver3 = 44;
+                    distanceSmallPreyRevolver4 = 52;
+                    distanceMediumPreyRevolver1 = 100;
+                    distanceMediumPreyRevolver2 = 112;
+                    distanceMediumPreyRevolver3 = 124;
+                    distanceMediumPreyRevolver4 = 136;
+                    distanceBigPreyRevolver1 = 124;
+                    distanceBigPreyRevolver2 = 136;
+                    distanceBigPreyRevolver3 = 148;
+                    distanceBigPreyRevolver4 = 160;
+
                     distanceBullseyeBow1 = 65;
                     distanceBullseyeBow2 = 80;
                     distanceBullseyeBow3 = 95;
                     distanceBullseyeBow4 = 110;
-                    distanceSmallPreyFirearms1 = 35;
-                    distanceSmallPreyFirearms2 = 45;
-                    distanceSmallPreyFirearms3 = 55;
-                    distanceSmallPreyFirearms4 = 65;
                     distanceSmallPreyBow1 = 25;
                     distanceSmallPreyBow2 = 35;
                     distanceSmallPreyBow3 = 45;
                     distanceSmallPreyBow4 = 55;
-                    distanceMediumPreyFirearms1 = 125;
-                    distanceMediumPreyFirearms2 = 140;
-                    distanceMediumPreyFirearms3 = 155;
-                    distanceMediumPreyFirearms4 = 170;
                     distanceMediumPreyBow1 = 35;
                     distanceMediumPreyBow2 = 50;
                     distanceMediumPreyBow3 = 65;
                     distanceMediumPreyBow4 = 80;
-                    distanceBigPreyFirearms1 = 155;
-                    distanceBigPreyFirearms2 = 170;
-                    distanceBigPreyFirearms3 = 185;
-                    distanceBigPreyFirearms4 = 200;
                     distanceBigPreyBow1 = 65;
                     distanceBigPreyBow2 = 80;
                     distanceBigPreyBow3 = 95;
@@ -456,38 +606,60 @@ namespace TargetPracticeAndMasterHunter
 
                 case 2:
                     // Apply Master distances
-                    distanceCanFirearms1 = 45;
-                    distanceCanFirearms2 = 50;
-                    distanceCanFirearms3 = 55;
-                    distanceCanFirearms4 = 60;
-                    distanceBullseyeFirearms1 = 115;
-                    distanceBullseyeFirearms2 = 130;
-                    distanceBullseyeFirearms3 = 300;
-                    distanceBullseyeFirearms4 = 300;
+                    distanceCanRifle1 = 45;
+                    distanceCanRifle2 = 50;
+                    distanceCanRifle3 = 55;
+                    distanceCanRifle4 = 60;
+                    distanceBullseyeRifle1 = 115;
+                    distanceBullseyeRifle2 = 130;
+                    distanceBullseyeRifle3 = 300;
+                    distanceBullseyeRifle4 = 300;
+                    distanceSmallPreyRifle1 = 50;
+                    distanceSmallPreyRifle2 = 60;
+                    distanceSmallPreyRifle3 = 70;
+                    distanceSmallPreyRifle4 = 80;
+                    distanceMediumPreyRifle1 = 155;
+                    distanceMediumPreyRifle2 = 170;
+                    distanceMediumPreyRifle3 = 185;
+                    distanceMediumPreyRifle4 = 200;
+                    distanceBigPreyRifle1 = 185;
+                    distanceBigPreyRifle2 = 200;
+                    distanceBigPreyRifle3 = 215;
+                    distanceBigPreyRifle4 = 230;
+
+                    distanceCanRevolver1 = 36;
+                    distanceCanRevolver2 = 40;
+                    distanceCanRevolver3 = 44;
+                    distanceCanRevolver4 = 48;
+                    distanceBullseyeRevolver1 = 92;
+                    distanceBullseyeRevolver2 = 104;
+                    distanceBullseyeRevolver3 = 120;
+                    distanceBullseyeRevolver4 = 300;
+                    distanceSmallPreyRevolver1 = 40;
+                    distanceSmallPreyRevolver2 = 48;
+                    distanceSmallPreyRevolver3 = 56;
+                    distanceSmallPreyRevolver4 = 64;
+                    distanceMediumPreyRevolver1 = 124;
+                    distanceMediumPreyRevolver2 = 136;
+                    distanceMediumPreyRevolver3 = 148;
+                    distanceMediumPreyRevolver4 = 160;
+                    distanceBigPreyRevolver1 = 148;
+                    distanceBigPreyRevolver2 = 160;
+                    distanceBigPreyRevolver3 = 172;
+                    distanceBigPreyRevolver4 = 184;
+
                     distanceBullseyeBow1 = 80;
                     distanceBullseyeBow2 = 100;
                     distanceBullseyeBow3 = 115;
                     distanceBullseyeBow4 = 130;
-                    distanceSmallPreyFirearms1 = 50;
-                    distanceSmallPreyFirearms2 = 60;
-                    distanceSmallPreyFirearms3 = 70;
-                    distanceSmallPreyFirearms4 = 80;
                     distanceSmallPreyBow1 = 30;
                     distanceSmallPreyBow2 = 40;
                     distanceSmallPreyBow3 = 50;
                     distanceSmallPreyBow4 = 60;
-                    distanceMediumPreyFirearms1 = 155;
-                    distanceMediumPreyFirearms2 = 170;
-                    distanceMediumPreyFirearms3 = 185;
-                    distanceMediumPreyFirearms4 = 200;
                     distanceMediumPreyBow1 = 55;
                     distanceMediumPreyBow2 = 70;
                     distanceMediumPreyBow3 = 85;
                     distanceMediumPreyBow4 = 100;
-                    distanceBigPreyFirearms1 = 185;
-                    distanceBigPreyFirearms2 = 200;
-                    distanceBigPreyFirearms3 = 215;
-                    distanceBigPreyFirearms4 = 230;
                     distanceBigPreyBow1 = 80;
                     distanceBigPreyBow2 = 100;
                     distanceBigPreyBow3 = 115;
@@ -499,18 +671,32 @@ namespace TargetPracticeAndMasterHunter
         internal void RefreshFields()
         {
 
-            SetFieldVisible(nameof(distanceSmallPreyFirearms1), Settings.settings.updateMasterHunter == true);
-            SetFieldVisible(nameof(distanceSmallPreyFirearms2), Settings.settings.updateMasterHunter == true);
-            SetFieldVisible(nameof(distanceSmallPreyFirearms3), Settings.settings.updateMasterHunter == true);
-            SetFieldVisible(nameof(distanceSmallPreyFirearms4), Settings.settings.updateMasterHunter == true);
-            SetFieldVisible(nameof(distanceMediumPreyFirearms1), Settings.settings.updateMasterHunter == true);
-            SetFieldVisible(nameof(distanceMediumPreyFirearms2), Settings.settings.updateMasterHunter == true);
-            SetFieldVisible(nameof(distanceMediumPreyFirearms3), Settings.settings.updateMasterHunter == true);
-            SetFieldVisible(nameof(distanceMediumPreyFirearms4), Settings.settings.updateMasterHunter == true);
-            SetFieldVisible(nameof(distanceBigPreyFirearms1), Settings.settings.updateMasterHunter == true);
-            SetFieldVisible(nameof(distanceBigPreyFirearms2), Settings.settings.updateMasterHunter == true);
-            SetFieldVisible(nameof(distanceBigPreyFirearms3), Settings.settings.updateMasterHunter == true);
-            SetFieldVisible(nameof(distanceBigPreyFirearms4), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceSmallPreyRifle1), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceSmallPreyRifle2), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceSmallPreyRifle3), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceSmallPreyRifle4), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceMediumPreyRifle1), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceMediumPreyRifle2), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceMediumPreyRifle3), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceMediumPreyRifle4), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceBigPreyRifle1), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceBigPreyRifle2), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceBigPreyRifle3), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceBigPreyRifle4), Settings.settings.updateMasterHunter == true);
+
+            SetFieldVisible(nameof(distanceSmallPreyRevolver1), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceSmallPreyRevolver2), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceSmallPreyRevolver3), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceSmallPreyRevolver4), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceMediumPreyRevolver1), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceMediumPreyRevolver2), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceMediumPreyRevolver3), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceMediumPreyRevolver4), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceBigPreyRevolver1), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceBigPreyRevolver2), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceBigPreyRevolver3), Settings.settings.updateMasterHunter == true);
+            SetFieldVisible(nameof(distanceBigPreyRevolver4), Settings.settings.updateMasterHunter == true);
+
             SetFieldVisible(nameof(distanceSmallPreyBow1), Settings.settings.updateMasterHunter == true);
             SetFieldVisible(nameof(distanceSmallPreyBow2), Settings.settings.updateMasterHunter == true);
             SetFieldVisible(nameof(distanceSmallPreyBow3), Settings.settings.updateMasterHunter == true);
@@ -550,6 +736,7 @@ namespace TargetPracticeAndMasterHunter
         {
             base.OnConfirm();
             ChangePrefabs();
+            UpdateReferences();
         }
 
         internal void ChangePrefabs()
@@ -572,6 +759,148 @@ namespace TargetPracticeAndMasterHunter
                 TargetPracticeAndMasterHunter.ChangePrefabResearchItems("GEAR_BookCarcassHarvesting", pointsCarcassHarvesting, timeCarcassHarvesting);
             }
         }
+
+        internal static void UpdateReferences()
+        {
+            TargetPracticeAndMasterHunter.referencesBow = new string[,]
+            {
+                {"BullseyeTarget","1",Settings.settings.distanceBullseyeBow1.ToString()},
+                {"BullseyeTarget","2",Settings.settings.distanceBullseyeBow2.ToString()},
+                {"BullseyeTarget","3",Settings.settings.distanceBullseyeBow3.ToString()},
+                {"BullseyeTarget","4",Settings.settings.distanceBullseyeBow4.ToString()},
+                {"Rabbit","1",Settings.settings.distanceSmallPreyBow1.ToString()},
+                {"Rabbit","2",Settings.settings.distanceSmallPreyBow2.ToString()},
+                {"Rabbit","3",Settings.settings.distanceSmallPreyBow3.ToString()},
+                {"Rabbit","4",Settings.settings.distanceSmallPreyBow4.ToString()},
+                {"Ptarmigan","1",Settings.settings.distanceSmallPreyBow1.ToString()},
+                {"Ptarmigan","2",Settings.settings.distanceSmallPreyBow2.ToString()},
+                {"Ptarmigan","3",Settings.settings.distanceSmallPreyBow3.ToString()},
+                {"Ptarmigan","4",Settings.settings.distanceSmallPreyBow4.ToString()},
+                {"Stag","1",Settings.settings.distanceMediumPreyBow1.ToString()},
+                {"Stag","2",Settings.settings.distanceMediumPreyBow2.ToString()},
+                {"Stag","3",Settings.settings.distanceMediumPreyBow3.ToString()},
+                {"Stag","4",Settings.settings.distanceMediumPreyBow4.ToString()},
+                {"Doe","1",Settings.settings.distanceMediumPreyBow1.ToString()},
+                {"Doe","2",Settings.settings.distanceMediumPreyBow2.ToString()},
+                {"Doe","3",Settings.settings.distanceMediumPreyBow3.ToString()},
+                {"Doe","4",Settings.settings.distanceMediumPreyBow4.ToString()},
+                {"Wolf","1",Settings.settings.distanceMediumPreyBow1.ToString()},
+                {"Wolf","2",Settings.settings.distanceMediumPreyBow2.ToString()},
+                {"Wolf","3",Settings.settings.distanceMediumPreyBow3.ToString()},
+                {"Wolf","4",Settings.settings.distanceMediumPreyBow4.ToString()},
+                {"Cougar","1",Settings.settings.distanceMediumPreyBow1.ToString()},
+                {"Cougar","2",Settings.settings.distanceMediumPreyBow2.ToString()},
+                {"Cougar","3",Settings.settings.distanceMediumPreyBow3.ToString()},
+                {"Cougar","4",Settings.settings.distanceMediumPreyBow4.ToString()},
+                {"Moose","1",Settings.settings.distanceBigPreyBow1.ToString()},
+                {"Moose","2",Settings.settings.distanceBigPreyBow2.ToString()},
+                {"Moose","3",Settings.settings.distanceBigPreyBow3.ToString()},
+                {"Moose","4",Settings.settings.distanceBigPreyBow4.ToString()},
+                {"Bear","1",Settings.settings.distanceBigPreyBow1.ToString()},
+                {"Bear","2",Settings.settings.distanceBigPreyBow2.ToString()},
+                {"Bear","3",Settings.settings.distanceBigPreyBow3.ToString()},
+                {"Bear","4",Settings.settings.distanceBigPreyBow4.ToString()}
+            };
+
+            TargetPracticeAndMasterHunter.referencesRifle = new string[,]
+            {
+
+                { "RecycledCan", "1", Settings.settings.distanceCanRifle1.ToString() },
+                { "RecycledCan", "2", Settings.settings.distanceCanRifle2.ToString() },
+                { "RecycledCan", "3", Settings.settings.distanceCanRifle3.ToString() },
+                { "RecycledCan", "4", Settings.settings.distanceCanRifle4.ToString() },
+                { "SprayPaintCan", "1", Settings.settings.distanceCanRifle1.ToString() },
+                { "SprayPaintCan", "2", Settings.settings.distanceCanRifle2.ToString() },
+                { "SprayPaintCan", "3", Settings.settings.distanceCanRifle3.ToString() },
+                { "SprayPaintCan", "4", Settings.settings.distanceCanRifle4.ToString() },
+                { "BullseyeTarget", "1", Settings.settings.distanceBullseyeRifle1.ToString() },
+                { "BullseyeTarget", "2", Settings.settings.distanceBullseyeRifle2.ToString() },
+                { "BullseyeTarget", "3", Settings.settings.distanceBullseyeRifle3.ToString() },
+                { "BullseyeTarget", "4", Settings.settings.distanceBullseyeRifle4.ToString() },
+                { "Rabbit", "1", Settings.settings.distanceSmallPreyRifle1.ToString() },
+                { "Rabbit", "2", Settings.settings.distanceSmallPreyRifle2.ToString() },
+                { "Rabbit", "3", Settings.settings.distanceSmallPreyRifle3.ToString() },
+                { "Rabbit", "4", Settings.settings.distanceSmallPreyRifle4.ToString() },
+                { "Ptarmigan", "1", Settings.settings.distanceSmallPreyRifle1.ToString() },
+                { "Ptarmigan", "2", Settings.settings.distanceSmallPreyRifle2.ToString() },
+                { "Ptarmigan", "3", Settings.settings.distanceSmallPreyRifle3.ToString() },
+                { "Ptarmigan", "4", Settings.settings.distanceSmallPreyRifle4.ToString() },
+                { "Stag", "1", Settings.settings.distanceMediumPreyRifle1.ToString() },
+                { "Stag", "2", Settings.settings.distanceMediumPreyRifle2.ToString() },
+                { "Stag", "3", Settings.settings.distanceMediumPreyRifle3.ToString() },
+                { "Stag", "4", Settings.settings.distanceMediumPreyRifle4.ToString() },
+                { "Doe", "1", Settings.settings.distanceMediumPreyRifle1.ToString() },
+                { "Doe", "2", Settings.settings.distanceMediumPreyRifle2.ToString() },
+                { "Doe", "3", Settings.settings.distanceMediumPreyRifle3.ToString() },
+                { "Doe", "4", Settings.settings.distanceMediumPreyRifle4.ToString() },
+                { "Wolf", "1", Settings.settings.distanceMediumPreyRifle1.ToString() },
+                { "Wolf", "2", Settings.settings.distanceMediumPreyRifle2.ToString() },
+                { "Wolf", "3", Settings.settings.distanceMediumPreyRifle3.ToString() },
+                { "Wolf", "4", Settings.settings.distanceMediumPreyRifle4.ToString() },
+                { "Cougar", "1", Settings.settings.distanceMediumPreyRifle1.ToString() },
+                { "Cougar", "2", Settings.settings.distanceMediumPreyRifle2.ToString() },
+                { "Cougar", "3", Settings.settings.distanceMediumPreyRifle3.ToString() },
+                { "Cougar", "4", Settings.settings.distanceMediumPreyRifle4.ToString() },
+                { "Moose", "1", Settings.settings.distanceBigPreyRifle1.ToString() },
+                { "Moose", "2", Settings.settings.distanceBigPreyRifle2.ToString() },
+                { "Moose", "3", Settings.settings.distanceBigPreyRifle3.ToString() },
+                { "Moose", "4", Settings.settings.distanceBigPreyRifle4.ToString() },
+                { "Bear", "1", Settings.settings.distanceBigPreyRifle1.ToString() },
+                { "Bear", "2", Settings.settings.distanceBigPreyRifle2.ToString() },
+                { "Bear", "3", Settings.settings.distanceBigPreyRifle3.ToString() },
+                { "Bear", "4", Settings.settings.distanceBigPreyRifle4.ToString() }
+            };
+
+            TargetPracticeAndMasterHunter.referencesRevolver = new string[,]
+            {
+
+                { "RecycledCan", "1", Settings.settings.distanceCanRevolver1.ToString() },
+                { "RecycledCan", "2", Settings.settings.distanceCanRevolver2.ToString() },
+                { "RecycledCan", "3", Settings.settings.distanceCanRevolver3.ToString() },
+                { "RecycledCan", "4", Settings.settings.distanceCanRevolver4.ToString() },
+                { "SprayPaintCan", "1", Settings.settings.distanceCanRevolver1.ToString() },
+                { "SprayPaintCan", "2", Settings.settings.distanceCanRevolver2.ToString() },
+                { "SprayPaintCan", "3", Settings.settings.distanceCanRevolver3.ToString() },
+                { "SprayPaintCan", "4", Settings.settings.distanceCanRevolver4.ToString() },
+                { "BullseyeTarget", "1", Settings.settings.distanceBullseyeRevolver1.ToString() },
+                { "BullseyeTarget", "2", Settings.settings.distanceBullseyeRevolver2.ToString() },
+                { "BullseyeTarget", "3", Settings.settings.distanceBullseyeRevolver3.ToString() },
+                { "BullseyeTarget", "4", Settings.settings.distanceBullseyeRevolver4.ToString() },
+                { "Rabbit", "1", Settings.settings.distanceSmallPreyRevolver1.ToString() },
+                { "Rabbit", "2", Settings.settings.distanceSmallPreyRevolver2.ToString() },
+                { "Rabbit", "3", Settings.settings.distanceSmallPreyRevolver3.ToString() },
+                { "Rabbit", "4", Settings.settings.distanceSmallPreyRevolver4.ToString() },
+                { "Ptarmigan", "1", Settings.settings.distanceSmallPreyRevolver1.ToString() },
+                { "Ptarmigan", "2", Settings.settings.distanceSmallPreyRevolver2.ToString() },
+                { "Ptarmigan", "3", Settings.settings.distanceSmallPreyRevolver3.ToString() },
+                { "Ptarmigan", "4", Settings.settings.distanceSmallPreyRevolver4.ToString() },
+                { "Stag", "1", Settings.settings.distanceMediumPreyRevolver1.ToString() },
+                { "Stag", "2", Settings.settings.distanceMediumPreyRevolver2.ToString() },
+                { "Stag", "3", Settings.settings.distanceMediumPreyRevolver3.ToString() },
+                { "Stag", "4", Settings.settings.distanceMediumPreyRevolver4.ToString() },
+                { "Doe", "1", Settings.settings.distanceMediumPreyRevolver1.ToString() },
+                { "Doe", "2", Settings.settings.distanceMediumPreyRevolver2.ToString() },
+                { "Doe", "3", Settings.settings.distanceMediumPreyRevolver3.ToString() },
+                { "Doe", "4", Settings.settings.distanceMediumPreyRevolver4.ToString() },
+                { "Wolf", "1", Settings.settings.distanceMediumPreyRevolver1.ToString() },
+                { "Wolf", "2", Settings.settings.distanceMediumPreyRevolver2.ToString() },
+                { "Wolf", "3", Settings.settings.distanceMediumPreyRevolver3.ToString() },
+                { "Wolf", "4", Settings.settings.distanceMediumPreyRevolver4.ToString() },
+                { "Cougar", "1", Settings.settings.distanceMediumPreyRevolver1.ToString() },
+                { "Cougar", "2", Settings.settings.distanceMediumPreyRevolver2.ToString() },
+                { "Cougar", "3", Settings.settings.distanceMediumPreyRevolver3.ToString() },
+                { "Cougar", "4", Settings.settings.distanceMediumPreyRevolver4.ToString() },
+                { "Moose", "1", Settings.settings.distanceBigPreyRevolver1.ToString() },
+                { "Moose", "2", Settings.settings.distanceBigPreyRevolver2.ToString() },
+                { "Moose", "3", Settings.settings.distanceBigPreyRevolver3.ToString() },
+                { "Moose", "4", Settings.settings.distanceBigPreyRevolver4.ToString() },
+                { "Bear", "1", Settings.settings.distanceBigPreyRevolver1.ToString() },
+                { "Bear", "2", Settings.settings.distanceBigPreyRevolver2.ToString() },
+                { "Bear", "3", Settings.settings.distanceBigPreyRevolver3.ToString() },
+                { "Bear", "4", Settings.settings.distanceBigPreyRevolver4.ToString() }
+            };
+        }
+
     }
 
     internal static class Settings
@@ -581,7 +910,9 @@ namespace TargetPracticeAndMasterHunter
         public static void OnLoad()
         {
             settings.AddToModSettings("Target Practice & Master Hunter Settings");
-            //settings.RefreshFields();
+            settings.RefreshFields();
+
         }
     }
+    
 }

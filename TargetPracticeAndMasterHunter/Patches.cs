@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Il2Cpp;
+using MelonLoader;
 using UnityEngine;
 
 namespace TargetPracticeAndMasterHunter
@@ -7,6 +8,7 @@ namespace TargetPracticeAndMasterHunter
     public static class GlobalVariable
     {
         public static int nbPoints = 0;
+        public static float executionTime = Time.time;
     }
 
     [HarmonyPatch(typeof(ArrowItem), nameof(ArrowItem.HandleCollisionWithObject))]
@@ -20,6 +22,7 @@ namespace TargetPracticeAndMasterHunter
             float distance = Vector3.Distance(playerPosition, collisionPoint);
             string colliderName = collider.name.StartsWith("capsule") ? collider.transform.parent.transform.parent.name : collider.name;
 
+           // MelonLogger.Msg("HandleCollision");
             nbPoints = Utilities.CalculatePointsAndMore(colliderName, SkillType.Archery, archerylevel, distance, collisionPoint, playerPosition);
 
             if (nbPoints > 0)
@@ -42,10 +45,12 @@ namespace TargetPracticeAndMasterHunter
             Vector3 playerPosition = GameManager.GetVpFPSPlayer().transform.position;
             Vector3 collisionPoint = hit.point;
             float distance = Vector3.Distance(playerPosition, collisionPoint);
+            MelonLogger.Msg(hit.collider.name);
             string colliderName = hit.collider.name.StartsWith("capsule") ? hit.collider.transform.parent.transform.parent.name : hit.collider.name;
 
             if (__instance.name.StartsWith("PistolBullet"))
             {
+                MelonLogger.Msg(__instance.name);
                 nbPoints = Utilities.CalculatePointsAndMore(colliderName, SkillType.Rifle, riflelevel, distance, collisionPoint, playerPosition);
 
                 if (nbPoints > 0)
@@ -55,6 +60,7 @@ namespace TargetPracticeAndMasterHunter
             }
             else if (__instance.name.StartsWith("RevolverBullet"))
             {
+                MelonLogger.Msg(__instance.name);
                 nbPoints = Utilities.CalculatePointsAndMore(colliderName, SkillType.Revolver, revolverlevel, distance, collisionPoint, playerPosition);
 
                 if (nbPoints > 0)
@@ -71,9 +77,10 @@ namespace TargetPracticeAndMasterHunter
     {
         static bool Prefix(SkillsManager __instance, SkillType skillType, int numPoints, SkillsManager.PointAssignmentMode mode)
         {
+            //MelonLogger.Msg("Prefix");
             // Disable prefix if Master Hunter is disabled
             if (!Settings.settings.updateMasterHunter) return true;
-
+            //MelonLogger.Msg("MasterHunter Enabled");
             // UNTOUCHED : Other skills won't be skipped by this prefix
             // UNTOUCHED : Points earned through knowledge books won't be skipped by this prefix (Meaning books have to provide at least 2 points...)
             // BLOCKED : Points earn when hitting an animal no matter the distance will be skipped by this prefix
@@ -85,12 +92,20 @@ namespace TargetPracticeAndMasterHunter
 
         static void Postfix(SkillsManager __instance, SkillType skillType, int numPoints, SkillsManager.PointAssignmentMode mode)
         {
+            //MelonLogger.Msg("PostFix");
+            // Prevent the second post fix to "happen" to deal with arrows crafting skill points.
+            //MelonLogger.Msg(Time.time);
+            //MelonLogger.Msg(GlobalVariable.executionTime);
+            if (Time.time - GlobalVariable.executionTime < 0.1f) return;
+
             // Disable postfix if Master Hunter is disabled
             if (!Settings.settings.updateMasterHunter) return;
-
+            //MelonLogger.Msg("MH option");
             // UNTOUCHED : Other skills won't be postfixed
-            if (skillType != SkillType.Rifle || skillType != SkillType.Revolver || skillType != SkillType.Archery) return;
-
+            if (skillType != SkillType.Rifle && skillType != SkillType.Revolver && skillType != SkillType.Archery) return;
+            //MelonLogger.Msg("Skill check");
+            //MelonLogger.Msg("Global points" + GlobalVariable.nbPoints);
+            //MelonLogger.Msg("Param points" + numPoints);
             // UNTOUCHED : Points earned through knowledge
             // UNTOUCHED : Points > 1 from incremental bonus
             if (numPoints > 1)
@@ -103,6 +118,7 @@ namespace TargetPracticeAndMasterHunter
             //((GlobalVariable.nbPoints == 0 && numPoints == 1)) >>> Allow points that effectively pass the conditions
             else if ((GlobalVariable.nbPoints == 0 && !Settings.settings.updateCraftingSkillPoints) || ((GlobalVariable.nbPoints == 1 && numPoints == 1)))
             {
+                //MelonLogger.Msg("CalculPoints");
                 Skill skill = GameManager.GetSkillsManager().GetSkill(skillType);
                 if ((bool)skill && skill.GetPoints() != skill.GetMaxPoints())
                 {
@@ -118,6 +134,7 @@ namespace TargetPracticeAndMasterHunter
                 }
                 GlobalVariable.nbPoints = 0;
             }
+            GlobalVariable.executionTime = Time.time;
         }
     }
 }

@@ -43,11 +43,13 @@ namespace TargetPracticeAndMasterHunter
             researchItem.m_SkillPoints = points;
             researchItem.m_TimeRequirementHours = time;
         }
+
         public override void OnInitializeMelon()
         {
             Debug.Log($"[{Info.Name}] Version {Info.Version} loaded!");
             Settings.OnLoad();
         }
+
 
         public static string[,] referencesBow = new string[,]
         {
@@ -89,53 +91,102 @@ namespace TargetPracticeAndMasterHunter
             {"Bear","4",Settings.settings.distanceBigPreyBow4.ToString()}
         };
 
-        public static string[,] referencesFirearms = new string[,]
+        public static string[,] referencesRifle = new string[,]
         {
 
-            {"RecycledCan","1",Settings.settings.distanceCanFirearms1.ToString()},
-            {"RecycledCan","2",Settings.settings.distanceCanFirearms2.ToString()},
-            {"RecycledCan","3",Settings.settings.distanceCanFirearms3.ToString()},
-            {"RecycledCan","4",Settings.settings.distanceCanFirearms4.ToString()},
-            {"SprayPaintCan","1",Settings.settings.distanceCanFirearms1.ToString()},
-            {"SprayPaintCan","2",Settings.settings.distanceCanFirearms2.ToString()},
-            {"SprayPaintCan","3",Settings.settings.distanceCanFirearms3.ToString()},
-            {"SprayPaintCan","4",Settings.settings.distanceCanFirearms4.ToString()},
-            {"BullseyeTarget","1",Settings.settings.distanceBullseyeFirearms1.ToString()},
-            {"BullseyeTarget","2",Settings.settings.distanceBullseyeFirearms2.ToString()},
-            {"BullseyeTarget","3",Settings.settings.distanceBullseyeFirearms3.ToString()},
-            {"BullseyeTarget","4",Settings.settings.distanceBullseyeFirearms4.ToString()},
-            {"Rabbit","1",Settings.settings.distanceSmallPreyFirearms1.ToString()},
-            {"Rabbit","2",Settings.settings.distanceSmallPreyFirearms2.ToString()},
-            {"Rabbit","3",Settings.settings.distanceSmallPreyFirearms3.ToString()},
-            {"Rabbit","4",Settings.settings.distanceSmallPreyFirearms4.ToString()},
-            {"Ptarmigan","1",Settings.settings.distanceSmallPreyFirearms1.ToString()},
-            {"Ptarmigan","2",Settings.settings.distanceSmallPreyFirearms2.ToString()},
-            {"Ptarmigan","3",Settings.settings.distanceSmallPreyFirearms3.ToString()},
-            {"Ptarmigan","4",Settings.settings.distanceSmallPreyFirearms4.ToString()},
-            {"Stag","1",Settings.settings.distanceMediumPreyFirearms1.ToString()},
-            {"Stag","2",Settings.settings.distanceMediumPreyFirearms2.ToString()},
-            {"Stag","3",Settings.settings.distanceMediumPreyFirearms3.ToString()},
-            {"Stag","4",Settings.settings.distanceMediumPreyFirearms4.ToString()},
-            {"Doe","1",Settings.settings.distanceMediumPreyFirearms1.ToString()},
-            {"Doe","2",Settings.settings.distanceMediumPreyFirearms2.ToString()},
-            {"Doe","3",Settings.settings.distanceMediumPreyFirearms3.ToString()},
-            {"Doe","4",Settings.settings.distanceMediumPreyFirearms4.ToString()},
-            {"Wolf","1",Settings.settings.distanceMediumPreyFirearms1.ToString()},
-            {"Wolf","2",Settings.settings.distanceMediumPreyFirearms2.ToString()},
-            {"Wolf","3",Settings.settings.distanceMediumPreyFirearms3.ToString()},
-            {"Wolf","4",Settings.settings.distanceMediumPreyFirearms4.ToString()},
-            {"Cougar","1",Settings.settings.distanceMediumPreyFirearms1.ToString()},
-            {"Cougar","2",Settings.settings.distanceMediumPreyFirearms2.ToString()},
-            {"Cougar","3",Settings.settings.distanceMediumPreyFirearms3.ToString()},
-            {"Cougar","4",Settings.settings.distanceMediumPreyFirearms4.ToString()},
-            {"Moose","1",Settings.settings.distanceBigPreyFirearms1.ToString()},
-            {"Moose","2",Settings.settings.distanceBigPreyFirearms2.ToString()},
-            {"Moose","3",Settings.settings.distanceBigPreyFirearms3.ToString()},
-            {"Moose","4",Settings.settings.distanceBigPreyFirearms4.ToString()},
-            {"Bear","1",Settings.settings.distanceBigPreyFirearms1.ToString()},
-            {"Bear","2",Settings.settings.distanceBigPreyFirearms2.ToString()},
-            {"Bear","3",Settings.settings.distanceBigPreyFirearms3.ToString()},
-            {"Bear","4",Settings.settings.distanceBigPreyFirearms4.ToString()}
+            { "RecycledCan", "1", Settings.settings.distanceCanRifle1.ToString() },
+            { "RecycledCan", "2", Settings.settings.distanceCanRifle2.ToString() },
+            { "RecycledCan", "3", Settings.settings.distanceCanRifle3.ToString() },
+            { "RecycledCan", "4", Settings.settings.distanceCanRifle4.ToString() },
+            { "SprayPaintCan", "1", Settings.settings.distanceCanRifle1.ToString() },
+            { "SprayPaintCan", "2", Settings.settings.distanceCanRifle2.ToString() },
+            { "SprayPaintCan", "3", Settings.settings.distanceCanRifle3.ToString() },
+            { "SprayPaintCan", "4", Settings.settings.distanceCanRifle4.ToString() },
+            { "BullseyeTarget", "1", Settings.settings.distanceBullseyeRifle1.ToString() },
+            { "BullseyeTarget", "2", Settings.settings.distanceBullseyeRifle2.ToString() },
+            { "BullseyeTarget", "3", Settings.settings.distanceBullseyeRifle3.ToString() },
+            { "BullseyeTarget", "4", Settings.settings.distanceBullseyeRifle4.ToString() },
+            { "Rabbit", "1", Settings.settings.distanceSmallPreyRifle1.ToString() },
+            { "Rabbit", "2", Settings.settings.distanceSmallPreyRifle2.ToString() },
+            { "Rabbit", "3", Settings.settings.distanceSmallPreyRifle3.ToString() },
+            { "Rabbit", "4", Settings.settings.distanceSmallPreyRifle4.ToString() },
+            { "Ptarmigan", "1", Settings.settings.distanceSmallPreyRifle1.ToString() },
+            { "Ptarmigan", "2", Settings.settings.distanceSmallPreyRifle2.ToString() },
+            { "Ptarmigan", "3", Settings.settings.distanceSmallPreyRifle3.ToString() },
+            { "Ptarmigan", "4", Settings.settings.distanceSmallPreyRifle4.ToString() },
+            { "Stag", "1", Settings.settings.distanceMediumPreyRifle1.ToString() },
+            { "Stag", "2", Settings.settings.distanceMediumPreyRifle2.ToString() },
+            { "Stag", "3", Settings.settings.distanceMediumPreyRifle3.ToString() },
+            { "Stag", "4", Settings.settings.distanceMediumPreyRifle4.ToString() },
+            { "Doe", "1", Settings.settings.distanceMediumPreyRifle1.ToString() },
+            { "Doe", "2", Settings.settings.distanceMediumPreyRifle2.ToString() },
+            { "Doe", "3", Settings.settings.distanceMediumPreyRifle3.ToString() },
+            { "Doe", "4", Settings.settings.distanceMediumPreyRifle4.ToString() },
+            { "Wolf", "1", Settings.settings.distanceMediumPreyRifle1.ToString() },
+            { "Wolf", "2", Settings.settings.distanceMediumPreyRifle2.ToString() },
+            { "Wolf", "3", Settings.settings.distanceMediumPreyRifle3.ToString() },
+            { "Wolf", "4", Settings.settings.distanceMediumPreyRifle4.ToString() },
+            { "Cougar", "1", Settings.settings.distanceMediumPreyRifle1.ToString() },
+            { "Cougar", "2", Settings.settings.distanceMediumPreyRifle2.ToString() },
+            { "Cougar", "3", Settings.settings.distanceMediumPreyRifle3.ToString() },
+            { "Cougar", "4", Settings.settings.distanceMediumPreyRifle4.ToString() },
+            { "Moose", "1", Settings.settings.distanceBigPreyRifle1.ToString() },
+            { "Moose", "2", Settings.settings.distanceBigPreyRifle2.ToString() },
+            { "Moose", "3", Settings.settings.distanceBigPreyRifle3.ToString() },
+            { "Moose", "4", Settings.settings.distanceBigPreyRifle4.ToString() },
+            { "Bear", "1", Settings.settings.distanceBigPreyRifle1.ToString() },
+            { "Bear", "2", Settings.settings.distanceBigPreyRifle2.ToString() },
+            { "Bear", "3", Settings.settings.distanceBigPreyRifle3.ToString() },
+            { "Bear", "4", Settings.settings.distanceBigPreyRifle4.ToString() }
+        };
+
+        public static string[,] referencesRevolver = new string[,]
+        {
+
+            { "RecycledCan", "1", Settings.settings.distanceCanRevolver1.ToString() },
+            { "RecycledCan", "2", Settings.settings.distanceCanRevolver2.ToString() },
+            { "RecycledCan", "3", Settings.settings.distanceCanRevolver3.ToString() },
+            { "RecycledCan", "4", Settings.settings.distanceCanRevolver4.ToString() },
+            { "SprayPaintCan", "1", Settings.settings.distanceCanRevolver1.ToString() },
+            { "SprayPaintCan", "2", Settings.settings.distanceCanRevolver2.ToString() },
+            { "SprayPaintCan", "3", Settings.settings.distanceCanRevolver3.ToString() },
+            { "SprayPaintCan", "4", Settings.settings.distanceCanRevolver4.ToString() },
+            { "BullseyeTarget", "1", Settings.settings.distanceBullseyeRevolver1.ToString() },
+            { "BullseyeTarget", "2", Settings.settings.distanceBullseyeRevolver2.ToString() },
+            { "BullseyeTarget", "3", Settings.settings.distanceBullseyeRevolver3.ToString() },
+            { "BullseyeTarget", "4", Settings.settings.distanceBullseyeRevolver4.ToString() },
+            { "Rabbit", "1", Settings.settings.distanceSmallPreyRevolver1.ToString() },
+            { "Rabbit", "2", Settings.settings.distanceSmallPreyRevolver2.ToString() },
+            { "Rabbit", "3", Settings.settings.distanceSmallPreyRevolver3.ToString() },
+            { "Rabbit", "4", Settings.settings.distanceSmallPreyRevolver4.ToString() },
+            { "Ptarmigan", "1", Settings.settings.distanceSmallPreyRevolver1.ToString() },
+            { "Ptarmigan", "2", Settings.settings.distanceSmallPreyRevolver2.ToString() },
+            { "Ptarmigan", "3", Settings.settings.distanceSmallPreyRevolver3.ToString() },
+            { "Ptarmigan", "4", Settings.settings.distanceSmallPreyRevolver4.ToString() },
+            { "Stag", "1", Settings.settings.distanceMediumPreyRevolver1.ToString() },
+            { "Stag", "2", Settings.settings.distanceMediumPreyRevolver2.ToString() },
+            { "Stag", "3", Settings.settings.distanceMediumPreyRevolver3.ToString() },
+            { "Stag", "4", Settings.settings.distanceMediumPreyRevolver4.ToString() },
+            { "Doe", "1", Settings.settings.distanceMediumPreyRevolver1.ToString() },
+            { "Doe", "2", Settings.settings.distanceMediumPreyRevolver2.ToString() },
+            { "Doe", "3", Settings.settings.distanceMediumPreyRevolver3.ToString() },
+            { "Doe", "4", Settings.settings.distanceMediumPreyRevolver4.ToString() },
+            { "Wolf", "1", Settings.settings.distanceMediumPreyRevolver1.ToString() },
+            { "Wolf", "2", Settings.settings.distanceMediumPreyRevolver2.ToString() },
+            { "Wolf", "3", Settings.settings.distanceMediumPreyRevolver3.ToString() },
+            { "Wolf", "4", Settings.settings.distanceMediumPreyRevolver4.ToString() },
+            { "Cougar", "1", Settings.settings.distanceMediumPreyRevolver1.ToString() },
+            { "Cougar", "2", Settings.settings.distanceMediumPreyRevolver2.ToString() },
+            { "Cougar", "3", Settings.settings.distanceMediumPreyRevolver3.ToString() },
+            { "Cougar", "4", Settings.settings.distanceMediumPreyRevolver4.ToString() },
+            { "Moose", "1", Settings.settings.distanceBigPreyRevolver1.ToString() },
+            { "Moose", "2", Settings.settings.distanceBigPreyRevolver2.ToString() },
+            { "Moose", "3", Settings.settings.distanceBigPreyRevolver3.ToString() },
+            { "Moose", "4", Settings.settings.distanceBigPreyRevolver4.ToString() },
+            { "Bear", "1", Settings.settings.distanceBigPreyRevolver1.ToString() },
+            { "Bear", "2", Settings.settings.distanceBigPreyRevolver2.ToString() },
+            { "Bear", "3", Settings.settings.distanceBigPreyRevolver3.ToString() },
+            { "Bear", "4", Settings.settings.distanceBigPreyRevolver4.ToString() }
         };
     }
 }
