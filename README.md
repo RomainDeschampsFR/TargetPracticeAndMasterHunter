@@ -1,8 +1,7 @@
 # TargetPracticeAndMasterHunter
-* **In short, your INGAME skill level = your IRL shooting skill level.** 
+* **In short, this mod allows you to ensure that your INGAME skill level = your IRL shooting skill level.** 
 
 ### TARGET PRACTICE 
-
 * Former ArcheryTargetPractice mod has been taken over and improved.
 * "FirearmsTargetPractice" added *(you can practice on spray paint, a recycled can or a bullseye)*
 
