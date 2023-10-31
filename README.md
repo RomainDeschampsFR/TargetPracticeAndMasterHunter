@@ -1,4 +1,5 @@
 # TargetPracticeAndMasterHunter
+* **In short, your INGAME skill level = your IRL shooting skill level.** 
 
 ### TARGET PRACTICE 
 
@@ -8,13 +9,12 @@
 (All the following are optional)
 
 ### MASTER HUNTER (This option is not compatible with SKILL MANAGER, all others are)
-* **In short, your INGAME skill level = your IRL shooting skill level.** 
 * **You can't evolve through the skill level without being good at it** *(At least, that's what the mod's aiming for)*
-* It applies the same rules of training but for hunting as well 
+* It applies the same distance rules of training but for hunting as well
+* You can still hunt at close range, but you won't increase your skills.
 
 ### ADJUST SLIDERS : The higher your level, the greater the distance required to gain a skill point.
-* You can still hunt at close range, but you won't increase your skills.
-* 3 Presets : Beginner, Intermediate, Master (to be balanced)
+* 3 Presets : Beginner, Intermediate, Master (to be balanced) - You can custom them ofc
 
 ### DISABLE SKILL POINTS FROM ARROW CRAFTING 
 * *(Because you don't learn much how to shoot that way...)*
