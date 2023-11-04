@@ -13,9 +13,16 @@
 * **Flare Gun** (PV's Bullseye)
 * **Stone** (PV's Bullseye)
 
+
+https://github.com/RomainDeschampsFR/TargetPracticeAndMasterHunter/assets/38351288/76c7e6f0-cbc2-4313-8bf1-21eed2334c52
+
+https://github.com/RomainDeschampsFR/TargetPracticeAndMasterHunter/assets/38351288/1d2c2005-681f-4eb6-a5c2-13b18d4ce947
+
 ### ADJUST SLIDERS (OPTION)
 * The higher your level, the greater the distance required to gain a skill point. (That's the original idea, but you do you...)
 * 3 Tweakable Presets : Beginner, Intermediate, Master
+
+https://github.com/RomainDeschampsFR/TargetPracticeAndMasterHunter/assets/38351288/9def1fa3-8da0-4370-b3b8-accfab219349
 
 ### INCREMENTAL BONUS (OPTION)
 * Long shot at low level = more points. 1 more point for each distance increment.
@@ -33,6 +40,9 @@
 ### RECORD DISTANCE DISPLAY (HOTKEY)
 * The mod saves the greatest distance from which you hit the target for each Target/Army pair. 
 * You can try to hit a bear from 250 range if you have nothing more to do...
+
+https://github.com/RomainDeschampsFR/TargetPracticeAndMasterHunter/assets/38351288/0bc30dd6-f8b1-4226-977d-84929297afb4
+
 
 ### DISPLAY SKILL ICON AFTER LVL 5 (OPTION)
 * So even after you've reached level 5, you'll know if you've hit your target by a long way.
