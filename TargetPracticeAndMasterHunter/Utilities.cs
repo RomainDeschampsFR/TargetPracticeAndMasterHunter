@@ -62,6 +62,11 @@ namespace TargetPracticeAndMasterHunter
                     if (targetName.Contains("WILDLIFE")) messageTarget += "\nBody part : " + capsuleName.Substring(8);
                     messageTarget += "\nDistance : " + Math.Round(distance, 1);
 
+                    if (Settings.settings.updateSideStep && !targetName.Contains("WILDLIFE"))
+                    {
+                        MakePerpendicularSideStep(collisionPoint, playerPosition);
+                    }
+
                     //If your skill is maxed out
                     if (currentLevel == 4)
                     {
@@ -69,40 +74,39 @@ namespace TargetPracticeAndMasterHunter
                         {
                             NotifySkillIconWithoutPointIncrease(skillType);
                         }
-                        if (Settings.settings.updateSideStep && !targetName.Contains("WILDLIFE"))
-                        {
-                            MakePerpendicularSideStep(collisionPoint, playerPosition);
-                        }
                     }
-                    else if (distance >= int.Parse(references[i, 2]))
+                    else 
                     {
-                        numPoints = 1;
                         if (Settings.settings.updateHeadshotBonus)
                         {
                             if (capsuleName.Contains("head")) numPoints += 1;
                         }
 
-                        if (Settings.settings.updateIncrementalBonus)
-                        {
-                            numPoints -= 1;
-                            for (int j = i; j < (i + (4 - currentLevel)); j++)
+                        if (distance >= int.Parse(references[i, 2]))
+                        { 
+                            numPoints += 1;
+
+                            if (Settings.settings.updateIncrementalBonus)
                             {
-                                if (distance >= int.Parse(references[j, 2]))
+                                if (!Settings.settings.updateMasterHunter && targetName.Contains("WILDLIFE")) break;
+
+                                numPoints -= 1;
+                                for (int j = i; j < (i + (4 - currentLevel)); j++)
                                 {
-                                    numPoints += 1;
-                                }
-                                else
-                                {
-                                    break;
+                                    if (distance >= int.Parse(references[j, 2]))
+                                    {
+                                        numPoints += 1;
+                                    }
+                                    else
+                                    {
+                                        break;
+                                    }
                                 }
                             }
+                            //MelonLogger.Msg("points : " + numPoints);
                         }
-                        //MelonLogger.Msg("points : " + numPoints);
                     }
-                    if (Settings.settings.updateSideStep && !targetName.Contains("WILDLIFE"))
-                    {
-                        MakePerpendicularSideStep(collisionPoint, playerPosition);
-                    }
+
                     break;
                 }
             }
