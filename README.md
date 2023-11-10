@@ -1,4 +1,7 @@
 # TargetPracticeAndMasterHunter
+
+![TargetPracticeAndMasterHunter](https://github.com/RomainDeschampsFR/TargetPracticeAndMasterHunter/assets/38351288/a6c539e3-a369-4b4f-af2c-b7ca403ba5b5)
+
 * On the one hand, this mod provides a bunch training features to allow you to practice and/or have fun.
 * On the other, it offers numerous options to block your automatic, effortless progression through skill levels, ensuring that you earn them more.
 * Since all options can be tweaked you can use this mod to actually go though the skill levels quicker as well
