@@ -4,7 +4,7 @@
 
 * On the one hand, this mod provides a bunch training features to allow you to practice and/or have fun.
 * On the other, it offers numerous options to block your automatic, effortless progression through skill levels, ensuring that you earn them more.
-* Since all options can be tweaked you can use this mod to actually go though the skill levels quicker as well
+* Since all options can be tweaked you can use this mod to actually go through the skill levels quicker as well
 
 ### TARGET PRACTICE (BASE MOD)
 * Former ArcheryTargetPractice from MikeyPdog, ds5678 & TheKillerGreece, taken over and improved with firearms.
